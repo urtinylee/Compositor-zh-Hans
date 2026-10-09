@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<installer-gui-script minSpecVersion="2">
+    <title>Compositor 1.4.8 简体中文补丁</title>
+    <organization>io.github.urtinylee</organization>
+    <options customize="never" require-scripts="false" hostArchitectures="arm64" rootVolumeOnly="true"/>
+    <domains enable_anywhere="false" enable_currentUserHome="false" enable_localSystem="true"/>
+    <volume-check>
+        <allowed-os-versions><os-version min="26.0"/></allowed-os-versions>
+    </volume-check>
+    <welcome file="welcome.html" mime-type="text/html"/>
+    <readme file="readme.html" mime-type="text/html"/>
+    <conclusion file="conclusion.html" mime-type="text/html"/>
+    <choices-outline><line choice="default"/></choices-outline>
+    <choice id="default" visible="false" title="Compositor 简体中文">
+        <pkg-ref id="io.github.urtinylee.compositor.zhHans"/>
+    </choice>
+    <pkg-ref id="io.github.urtinylee.compositor.zhHans" version="1.4.8.1" onConclusion="none">Compositor-zh-Hans-component.pkg</pkg-ref>
+</installer-gui-script>
