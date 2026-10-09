@@ -35,7 +35,7 @@ def main():
     shutil.copyfile(ROOT / "LICENSE", resources / "LICENSE.txt")
     shutil.copyfile(ROOT / "NOTICE", resources / "NOTICE.txt")
     shutil.copyfile(ROOT / "docs/INSTALL.zh-CN.md", resources / "INSTALL.zh-CN.md")
-    info["CFBundleVersion"] = "43.1"
+    info["CFBundleVersion"] = "43.2"
     (app / "Contents/Info.plist").write_bytes(plistlib.dumps(info, sort_keys=False))
     run("codesign", "--force", "--sign", "-", "--options", "runtime", "--entitlements", str(ROOT / "Config/Compositor.entitlements"), str(app))
     run("codesign", "--verify", "--deep", "--strict", str(app))
@@ -49,7 +49,7 @@ def main():
     component_plist.write_bytes(plistlib.dumps(components))
     component = staging / "Compositor-zh-Hans-component.pkg"
     run("pkgbuild", "--root", str(payload), "--component-plist", str(component_plist),
-        "--identifier", "io.github.urtinylee.compositor.zhHans", "--version", "1.4.8.1",
+        "--identifier", "io.github.urtinylee.compositor.zhHans", "--version", "1.4.8.2",
         "--install-location", "/Applications", "--ownership", "recommended", "--scripts",
         str(ROOT / "packaging/scripts"), str(component))
     dist = ROOT / "dist"

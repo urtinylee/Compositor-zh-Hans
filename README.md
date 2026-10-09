@@ -4,6 +4,8 @@
 
 基于 [robbietilton/Compositor](https://github.com/robbietilton/Compositor) **1.4.8** 的第三方简体中文汉化副本。主要菜单、工具、图层面板、滤镜及常用对话框加入中文，也支持中文命令搜索。
 
+当前修正版 **zh2** 将左侧文字工具按钮显示为“文本”。
+
 ## 安装
 
 **要求：macOS 26.0+、Apple silicon（M 系列芯片）。**
@@ -32,7 +34,7 @@
 
 译文源：`localization/translations.tsv`。标准资源：`Compositor/zh-Hans.lproj/Localizable.strings`。动态文案入口：`Compositor/Localization.swift`。
 
-本机已验证的构建环境是 Command Line Tools 的 Swift 6.4 与 macOS 26.5 SDK；构建脚本目前固定使用该 SDK。其他工具链尚未验证。为取得同版本编译后的图标资源，源码重建需要先将官方 1.4.8 安装到 `/Applications/Compositor.app`。普通用户使用发行安装包不需要这一步。
+本机已验证的构建环境是 Command Line Tools 的 Swift 6.4 与 macOS 26.5 SDK；构建脚本目前固定使用该 SDK。其他工具链尚未验证。为取得同版本编译后的图标资源，源码重建需要已安装 Compositor 1.4.8（官方版 `/Applications/Compositor.app` 或中文版 `/Applications/Compositor 简体中文.app` 均可）。普通用户使用发行安装包不需要这一步。
 
 ```sh
 python3 scripts/build-zh-hans.py

@@ -1972,8 +1972,8 @@
 "Two Colors" = "双色";
 "Two Colors…" = "双色…";
 "Type" = "文字";
-"Type (T)" = "文字（T）";
-"Type (T)…" = "文字（T）…";
+"Type (T)" = "文本（T）";
+"Type (T)…" = "文本（T）…";
 "Type tool" = "文字工具";
 "Type tool…" = "文字工具…";
 "Type…" = "文字…";
@@ -3487,8 +3487,8 @@
 "two Colors" = "双色";
 "two colors" = "双色";
 "type" = "文字";
-"type (T)" = "文字（T）";
-"type (t)" = "文字（T）";
+"type (T)" = "文本（T）";
+"type (t)" = "文本（T）";
 "type tool" = "文字工具";
 "underlying pixels · alpha-weighted histogram" = "底层像素 · 按透明度加权的直方图";
 "undo" = "撤销";

@@ -310,6 +310,7 @@ struct ContentView: View {
                     Group {
                         if tool == .gradient { GradientToolIcon().frame(width: 18, height: 18) }
                         else if tool == .cloneStamp { CloneStampToolIcon().frame(width: 18, height: 18) }
+                        else if tool == .type { Text(verbatim: "文本").font(.system(size: 14, weight: .medium)) }
                         else if tool == .lasso, session.lassoKind == .polygonal { PolygonalLassoToolIcon().frame(width: 18, height: 18) }
                         else if tool == .wand, session.wandMode == .object { ObjectSelectionToolIcon().frame(width: 18, height: 18) }
                         // The Marquee's icon follows its shape: a dashed circle in Ellipse mode.

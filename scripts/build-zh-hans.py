@@ -5,10 +5,21 @@ import subprocess, plistlib
 root = Path(__file__).resolve().parent.parent
 build = root / 'build'
 build.mkdir(exist_ok=True)
-original=Path('/Applications/Compositor.app/Contents')
-original_info=plistlib.loads((original/'Info.plist').read_bytes())
-if original_info.get('CFBundleIdentifier')!='com.wonderassembly.compositor' or original_info.get('CFBundleShortVersionString')!='1.4.8':
-    raise SystemExit('Install the official Compositor 1.4.8 before building this patch.')
+# Artwork can come from either same-version installed edition.
+original = None
+for app_path, expected_id in [('/Applications/Compositor.app', 'com.wonderassembly.compositor'),
+                              ('/Applications/Compositor 简体中文.app', 'com.wonderassembly.compositor.zhHans')]:
+    candidate = Path(app_path) / 'Contents'
+    if not (candidate / 'Info.plist').is_file():
+        continue
+    candidate_info = plistlib.loads((candidate / 'Info.plist').read_bytes())
+    if (candidate_info.get('CFBundleIdentifier') == expected_id
+            and candidate_info.get('CFBundleShortVersionString') == '1.4.8'
+            and all((candidate / 'Resources' / asset).is_file() for asset in ['Assets.car', 'AppIcon.icns'])):
+        original, original_info = candidate, candidate_info
+        break
+if original is None:
+    raise SystemExit('Install Compositor 1.4.8 (official or Chinese edition) before building this patch.')
 sdk = '/Library/Developer/CommandLineTools/SDKs/MacOSX26.5.sdk'
 objs=[]
 for c in sorted((root/'Compositor').rglob('*.c')):
@@ -37,7 +48,7 @@ shutil.copytree(root/'Compositor/zh-Hans.lproj',contents/'Resources/zh-Hans.lpro
 info=original_info.copy()
 info.update(CFBundleIdentifier='com.wonderassembly.compositor.zhHans',
             CFBundleName='Compositor 简体中文',CFBundleDisplayName='Compositor 简体中文',
-            CFBundleShortVersionString='1.4.8',CFBundleVersion='43.1',
+            CFBundleShortVersionString='1.4.8',CFBundleVersion='43.2',
             CFBundleLocalizations=['en','zh-Hans'],CFBundleDevelopmentRegion='en',
             SUEnableAutomaticChecks=False,SUAutomaticallyUpdate=False,
             LSMinimumSystemVersion='26.0')

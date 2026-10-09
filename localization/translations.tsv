@@ -1048,7 +1048,7 @@ This Photoshop layer type isn’t supported and was imported as pixels.	此 Phot
 This clipping mask’s base isn’t supported, so clipping was skipped.	此剪贴蒙版的基础图层不受支持，已跳过剪贴。
 This is not a valid Compositor project, or its metadata is damaged.	这不是有效的 Compositor 项目，或其元数据已损坏。
 Toggle Fullscreen: the canvas alone on black (Esc also leaves)	切换全屏：画布显示在黑色背景上（Esc 也可退出）
-Type (T)	文字（T）
+Type (T)	文本（T）
 Units: pixels, inches, centimeters or millimeters. Click to switch.	单位：像素、英寸、厘米或毫米。点击切换。
 Unlink layer and mask to move or transform them separately	取消图层与蒙版的链接，以分别移动或变换
 Weakens green fringes inside the green hue range.	减弱绿色色相范围内的绿边。
